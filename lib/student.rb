@@ -34,7 +34,7 @@ class Student
       SQL
     else
       sql = <<-SQL
-        UPDATE songs SET name = ?
+        UPDATE students SET name = ?
       SQL
 
     DB[:conn].execute(sql, self.name, self.grade, self.name)
