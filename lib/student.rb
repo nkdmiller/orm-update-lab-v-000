@@ -30,8 +30,8 @@ class Student
     sql = <<-SQL
       INSERT INTO students (name, grade)
       VALUES (?, ?)
-      DUPLICATE KEY UPDATE    
-      name = ? 
+      DUPLICATE KEY UPDATE
+      name = ?
     SQL
 
     DB[:conn].execute(sql, self.name, self.grade, self.name)
