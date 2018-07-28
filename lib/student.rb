@@ -34,10 +34,10 @@ class Student
       SQL
     else
       sql = <<-SQL
-        UPDATE students SET name = ?
+        UPDATE students SET name = ?, grade = ?
       SQL
 
-    DB[:conn].execute(sql, self.name, self.grade, self.name)
+    DB[:conn].execute(sql, self.name, self.grade)
     if @id != nil
       @id
     else
