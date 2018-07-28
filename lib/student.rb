@@ -36,7 +36,7 @@ class Student
       sql = <<-SQL
         UPDATE students SET name = ?, grade = ?
       SQL
-
+    end
     DB[:conn].execute(sql, self.name, self.grade)
     if @id != nil
       @id
