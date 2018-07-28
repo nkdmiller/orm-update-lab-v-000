@@ -27,12 +27,15 @@ class Student
   end
 
   def save
-    sql = <<-SQL
-      INSERT INTO students (name, grade)
-      VALUES (?, ?)
-      DUPLICATE KEY UPDATE
-      name = ?
-    SQL
+    if self.id == nil
+      sql = <<-SQL
+        INSERT INTO students (name, grade)
+        VALUES (?, ?)
+      SQL
+    else
+      sql = <<-SQL
+        UPDATE songs SET name = ?
+      SQL
 
     DB[:conn].execute(sql, self.name, self.grade, self.name)
     if @id != nil
